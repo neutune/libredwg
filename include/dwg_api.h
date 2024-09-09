@@ -6519,7 +6519,8 @@ extern "C"
   EXPORT Dwg_Entity_LINE *
   dwg_add_LINE (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
                 const dwg_point_3d *restrict start_pt,
-                const dwg_point_3d *restrict end_pt) __nonnull_all;
+                const dwg_point_3d *restrict end_pt,
+                const int color) __nonnull_all;
   EXPORT Dwg_Entity_DIMENSION_ALIGNED *dwg_add_DIMENSION_ALIGNED (
       Dwg_Object_BLOCK_HEADER *restrict blkhdr,
       const dwg_point_3d *restrict xline1_pt,

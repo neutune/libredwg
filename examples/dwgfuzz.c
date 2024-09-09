@@ -584,9 +584,9 @@ dwg_fuzz_dat (Dwg_Data **restrict dwgp, Bit_Chain *restrict dat)
                        &text[0] SZ))                                          \
     dwg_dynapi_entity_set_value (var, #name, s1, text, 1)
 
-      if (SSCANF_S (p, "line (%lf %lf %lf) (%lf %lf %lf)", &pt1.x, &pt1.y,
-                    &pt1.z, &pt2.x, &pt2.y, &pt2.z))
-        dwg_add_LINE (hdr, &pt1, &pt2);
+      if (SSCANF_S (p, "line (%lf %lf %lf) (%lf %lf %lf) %i", &pt1.x, &pt1.y,
+                    &pt1.z, &pt2.x, &pt2.y, &pt2.z, &i1))
+        dwg_add_LINE (hdr, &pt1, &pt2, i1);
       else if (SSCANF_S (p, "ray (%lf %lf %lf) (%lf %lf %lf)", &pt1.x, &pt1.y,
                          &pt1.z, &pt2.x, &pt2.y, &pt2.z))
         dwg_add_RAY (hdr, &pt1, &pt2);

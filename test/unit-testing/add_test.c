@@ -136,7 +136,7 @@ test_add (const Dwg_Object_Type type, const char *restrict file,
   switch ((int)type)
     {
     case DWG_TYPE_LINE:
-      dwg_add_LINE (hdr, &pt1, &pt2);
+      dwg_add_LINE (hdr, &pt1, &pt2, 0);
       break;
     case DWG_TYPE_TEXT:
       dwg_add_TEXT (hdr, "testtekst", &pt1, 0.5);
@@ -206,7 +206,7 @@ test_add (const Dwg_Object_Type type, const char *restrict file,
         Dwg_Object_BLOCK_HEADER *blk;
         blk = dwg_add_BLOCK_HEADER (dwg, "bloko");
         dwg_add_BLOCK (blk, "bloko");
-        dwg_add_LINE (blk, &pt1, &pt2);
+        dwg_add_LINE (blk, &pt1, &pt2, 0);
         dwg_add_ENDBLK (blk);
         dwg_add_INSERT (hdr, &pt1, "bloko", 1.0, 1.0, 1.0, 0.0);
       }
@@ -216,7 +216,7 @@ test_add (const Dwg_Object_Type type, const char *restrict file,
         Dwg_Object_BLOCK_HEADER *blk;
         blk = dwg_add_BLOCK_HEADER (dwg, "bloko");
         dwg_add_BLOCK (blk, "bloko");
-        dwg_add_LINE (blk, &pt1, &pt2);
+        dwg_add_LINE (blk, &pt1, &pt2, 0);
         dwg_add_ENDBLK (blk);
         dwg_add_MINSERT (hdr, &pt1, "bloko", 1.0, 1.0, 1.0, 0.0, 2, 1, 1.0,
                          0.0);
@@ -228,7 +228,7 @@ test_add (const Dwg_Object_Type type, const char *restrict file,
         Dwg_Object_BLOCK_HEADER *newhdr;
         newhdr = dwg_add_BLOCK_HEADER (dwg, "bloko");
         dwg_add_BLOCK (newhdr, "bloko");
-        dwg_add_LINE (newhdr, &pt1, &pt2);
+        dwg_add_LINE (newhdr, &pt1, &pt2, 0);
         dwg_add_ENDBLK (newhdr);
         insert = dwg_add_INSERT (hdr, &pt1, "bloko", 1.0, 1.0, 1.0, 0.0);
         // adds ATTDEF to BLOCK, redefines it (??)

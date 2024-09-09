@@ -1074,14 +1074,14 @@ dwg_add_dat (Dwg_Data **dwgp, Bit_Chain *dat)
           // clang-format off
         SET_ENT (attrib, ATTRIB)
       // clang-format on
-      else if (6
-               == SSCANF_S (p, "line (%lf %lf %lf) (%lf %lf %lf)", &pt1.x,
-                            &pt1.y, &pt1.z, &pt2.x, &pt2.y, &pt2.z))
+      else if (7
+               == SSCANF_S (p, "line (%lf %lf %lf) (%lf %lf %lf) %i", &pt1.x,
+                            &pt1.y, &pt1.z, &pt2.x, &pt2.y, &pt2.z, &i1))
       {
-        LOG_TRACE ("add_LINE %s (%f %f %f) (%f %f %f)\n", hdr_s, pt1.x, pt1.y,
-                   pt1.z, pt2.x, pt2.y, pt2.z);
+        LOG_TRACE ("add_LINE %s (%f %f %f) (%f %f %f) %i\n", hdr_s, pt1.x, pt1.y,
+                   pt1.z, pt2.x, pt2.y, pt2.z, i1);
         CHK_MISSING_BLOCK_HEADER
-        ent = (lastent_t){ .u.line = dwg_add_LINE (hdr, &pt1, &pt2),
+        ent = (lastent_t){ .u.line = dwg_add_LINE (hdr, &pt1, &pt2, i1),
                            .type = DWG_TYPE_LINE };
       }
       else

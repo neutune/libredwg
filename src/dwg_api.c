@@ -24054,7 +24054,9 @@ dwg_add_CIRCLE (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
 EXPORT Dwg_Entity_LINE *
 dwg_add_LINE (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
               const dwg_point_3d *restrict start_pt,
-              const dwg_point_3d *restrict end_pt)
+              const dwg_point_3d *restrict end_pt,
+              const int color
+              )
 {
   API_ADD_ENTITY (LINE);
   ADD_CHECK_3DPOINT (start_pt);
@@ -24065,6 +24067,7 @@ dwg_add_LINE (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
   _obj->end.x = end_pt->x;
   _obj->end.y = end_pt->y;
   _obj->end.z = end_pt->z;
+  _obj->parent->color.index = color;
 
   if (dwg->header.version <= R_11)
     obj->type = DWG_TYPE_LINE_r11;
