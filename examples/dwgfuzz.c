@@ -626,10 +626,10 @@ dwg_fuzz_dat (Dwg_Data **restrict dwgp, Bit_Chain *restrict dat)
           dwg_add_ARC (hdr, &pt1, f1, f2, height);
       else if (SSCANF_S (p,
                          "dimension_aligned (%lf %lf %lf) (%lf %lf %lf) (%lf "
-                         "%lf %lf)",
+                         "%lf %lf) (%lf %lf %lf)",
                          &pt1.x, &pt1.y, &pt1.z, &pt2.x, &pt2.y, &pt2.z,
-                         &pt3.x, &pt3.y, &pt3.z))
-          dwg_add_DIMENSION_ALIGNED (hdr, &pt1, &pt2, &pt3);
+                         &pt3.x, &pt3.y, &pt3.z, &pt4.x, &pt4.y, &pt4.z))
+          dwg_add_DIMENSION_ALIGNED (hdr, &pt1, &pt2, &pt3, &pt4);
       else if (SSCANF_S (
                    p,
                    "dimension_linear (%lf %lf %lf) (%lf %lf %lf) (%lf %lf "

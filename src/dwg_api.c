@@ -24118,6 +24118,7 @@ EXPORT Dwg_Entity_DIMENSION_ALIGNED *
 dwg_add_DIMENSION_ALIGNED (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
                            const dwg_point_3d *restrict xline1_pt,
                            const dwg_point_3d *restrict xline2_pt,
+                           const dwg_point_3d *restrict def_pt,
                            const dwg_point_3d *restrict text_midpt)
 {
   API_ADD_ENTITY (DIMENSION_ALIGNED);
@@ -24130,10 +24131,14 @@ dwg_add_DIMENSION_ALIGNED (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
   DIMENSION_DEFAULTS;
   ADD_CHECK_3DPOINT (xline1_pt);
   ADD_CHECK_3DPOINT (xline2_pt);
+  ADD_CHECK_3DPOINT (def_pt);
   ADD_CHECK_3DPOINT (text_midpt);
   _obj->text_midpt.x = text_midpt->x;
   _obj->text_midpt.y = text_midpt->y;
   //_obj->text_midpt.z= text_midpt->z;
+  _obj->def_pt.x = def_pt->x;
+  _obj->def_pt.y = def_pt->y;
+  _obj->def_pt.z = def_pt->z;
   _obj->xline1_pt.x = xline1_pt->x;
   _obj->xline1_pt.y = xline1_pt->y;
   _obj->xline1_pt.z = xline1_pt->z;

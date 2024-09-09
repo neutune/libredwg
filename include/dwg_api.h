@@ -6524,6 +6524,7 @@ extern "C"
       Dwg_Object_BLOCK_HEADER *restrict blkhdr,
       const dwg_point_3d *restrict xline1_pt,
       const dwg_point_3d *restrict xline2_pt,
+      const dwg_point_3d *restrict def_pt,
       const dwg_point_3d *restrict text_pt) __nonnull_all;
   EXPORT Dwg_Entity_DIMENSION_ANG2LN * /* DimAngular */
   dwg_add_DIMENSION_ANG2LN (Dwg_Object_BLOCK_HEADER *restrict blkhdr,

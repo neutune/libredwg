@@ -1275,21 +1275,21 @@ dwg_add_dat (Dwg_Data **dwgp, Bit_Chain *dat)
           // clang-format off
         SET_ENT (arc, ARC)
       // clang-format on
-      else if (9
+      else if (12
                == SSCANF_S (
                    p,
-                   "dimension_aligned (%lf %lf %lf) (%lf %lf %lf) (%lf "
+                   "dimension_aligned (%lf %lf %lf) (%lf %lf %lf) (%lf %lf %lf) (%lf "
                    "%lf %lf)",
                    &pt1.x, &pt1.y, &pt1.z, &pt2.x, &pt2.y, &pt2.z, &pt3.x,
-                   &pt3.y, &pt3.z))
+                   &pt3.y, &pt3.z, &pt4.x, &pt4.y, &pt4.z))
       {
         LOG_TRACE (
-            "add_DIMENSION_ALIGNED %s (%f %f %f) (%f %f %f) (%f %f %f)\n",
+            "add_DIMENSION_ALIGNED %s (%f %f %f) (%f %f %f) (%f %f %f) (%f %f %f)\n",
             hdr_s, pt1.x, pt1.y, pt1.z, pt2.x, pt2.y, pt2.z, pt3.x, pt3.y,
-            pt3.z);
+            pt3.z, pt4.x, pt4.y, pt4.z);
         CHK_MISSING_BLOCK_HEADER
         ent = (lastent_t){ .u.dimali
-                           = dwg_add_DIMENSION_ALIGNED (hdr, &pt1, &pt2, &pt3),
+                           = dwg_add_DIMENSION_ALIGNED (hdr, &pt1, &pt2, &pt3, &pt4),
                            .type = DWG_TYPE_DIMENSION_ALIGNED };
       }
       else
