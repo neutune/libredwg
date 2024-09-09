@@ -25605,7 +25605,9 @@ dwg_add_MLINESTYLE (Dwg_Data *restrict dwg, const char *restrict name)
 
 EXPORT Dwg_Entity_LWPOLYLINE *
 dwg_add_LWPOLYLINE (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
-                    const int num_pts2d, const dwg_point_2d *restrict pts2d)
+                    const int num_pts2d, 
+                    const int color,
+                    const dwg_point_2d *restrict pts2d)
 {
   {
     int err;
@@ -25621,6 +25623,7 @@ dwg_add_LWPOLYLINE (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
   }
   {
     API_ADD_ENTITY (LWPOLYLINE);
+    _obj->parent->color.index = color;
     error = dwg_ent_lwpline_set_points (_obj, num_pts2d, pts2d);
     return _obj;
   }

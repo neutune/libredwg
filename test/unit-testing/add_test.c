@@ -152,7 +152,7 @@ test_add (const Dwg_Object_Type type, const char *restrict file,
         const dwg_point_2d pts[] = {
           { 0.0, 0.0 }, { 2.5, 0.0 }, { 2.5, 2.0 }, { 0.0, 2.0 }, { 1.5, 1.0 }
         };
-        dwg_add_LWPOLYLINE (hdr, 5, pts);
+        dwg_add_LWPOLYLINE (hdr, 5, 0, pts);
       }
       break;
     case DWG_TYPE_POLYLINE_2D:
@@ -431,7 +431,7 @@ test_add (const Dwg_Object_Type type, const char *restrict file,
         BITCODE_2RD *seeds
             = malloc (sizeof (BITCODE_2RD)); // this cannot be constant
         Dwg_Entity_HATCH *hatch;
-        Dwg_Entity_LWPOLYLINE *pline = dwg_add_LWPOLYLINE (hdr, 5, pts);
+        Dwg_Entity_LWPOLYLINE *pline = dwg_add_LWPOLYLINE (hdr, 5, 0, pts);
         Dwg_Object *obj;
         const Dwg_Object *objs[1];
         pline->flag |= 512; // closed

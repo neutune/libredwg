@@ -1606,8 +1606,8 @@ dwg_add_dat (Dwg_Data **dwgp, Bit_Chain *dat)
           // clang-format off
         SET_ENT (polyline_pface, POLYLINE_PFACE)
       // clang-format on
-      else if (3
-               == SSCANF_S (p, "lwpolyline %d ((%lf %lf)", &i1, &pt1.x,
+      else if (4
+               == SSCANF_S (p, "lwpolyline %d %d ((%lf %lf)", &i1, &i2, &pt1.x,
                             &pt1.y))
       {
         dwg_point_2d *pts = scan_pts2d (i1, &p);
@@ -1622,7 +1622,7 @@ dwg_add_dat (Dwg_Data **dwgp, Bit_Chain *dat)
             LOG_TRACE (")\n");
             CHK_MISSING_BLOCK_HEADER
             ent = (lastent_t){ .u.lwpolyline
-                               = dwg_add_LWPOLYLINE (hdr, i1, pts),
+                               = dwg_add_LWPOLYLINE (hdr, i1, i2, pts),
                                .type = DWG_TYPE_LWPOLYLINE };
             free (pts);
           }

@@ -6668,6 +6668,7 @@ extern "C"
   EXPORT Dwg_Entity_LWPOLYLINE *
   dwg_add_LWPOLYLINE (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
                       const int num_pts2d,
+                      const int color,
                       const dwg_point_2d *restrict pts2d) __nonnull_all;
 
   /* Experimental. Does not work yet properly */
