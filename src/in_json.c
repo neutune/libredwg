@@ -1567,7 +1567,8 @@ json_eed (Bit_Chain *restrict dat, Dwg_Data *restrict dwg,
                     }
                   have--;
                   obj->eed[i].data->code = (BITCODE_RC)code;
-                  LOG_TRACE ("eed[%u].data.code " FORMAT_RC "\n", i, code);
+                  unsigned char uc_code = code;
+                  LOG_TRACE ("eed[%u].data.code " FORMAT_RC "\n", i, uc_code);
                 }
               else if (strEQc (key, "value"))
                 {

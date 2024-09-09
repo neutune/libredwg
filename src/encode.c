@@ -2716,7 +2716,8 @@ encode_classes (Dwg_Data *restrict dwg, Bit_Chain *restrict dat)
     bit_write_BS (dat, max_num);
     LOG_TRACE ("max_num: " FORMAT_BS " [BS]\n", max_num);
     bit_write_RS (dat, 0);
-    LOG_TRACE ("rs_zero: " FORMAT_RS " [RS]\n", 0);
+    unsigned short zero = 0;
+    LOG_TRACE ("rs_zero: " FORMAT_RS " [RS]\n", zero);
     bit_write_B (dat, 1);
     LOG_TRACE ("btrue: " FORMAT_B " [B]\n", 1);
   }
