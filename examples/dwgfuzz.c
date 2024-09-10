@@ -633,10 +633,10 @@ dwg_fuzz_dat (Dwg_Data **restrict dwgp, Bit_Chain *restrict dat)
       else if (SSCANF_S (
                    p,
                    "dimension_linear (%lf %lf %lf) (%lf %lf %lf) (%lf %lf "
-                   "%lf) %lf",
+                   "%lf) %lf, %d",
                    &pt1.x, &pt1.y, &pt1.z, &pt2.x, &pt2.y, &pt2.z, &pt3.x,
-                   &pt3.y, &pt3.z, &rot))
-          dwg_add_DIMENSION_LINEAR (hdr, &pt1, &pt2, &pt3, deg2rad (rot));
+                   &pt3.y, &pt3.z, &rot, &i1))
+          dwg_add_DIMENSION_LINEAR (hdr, &pt1, &pt2, &pt3, deg2rad (rot), i1);
       else if (SSCANF_S (
                    p,
                    "dimension_ang2ln (%lf %lf %lf) (%lf %lf %lf) (%lf %lf "

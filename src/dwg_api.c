@@ -24336,7 +24336,8 @@ dwg_add_DIMENSION_LINEAR (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
                           const dwg_point_3d *restrict xline1_pt,
                           const dwg_point_3d *restrict xline2_pt,
                           const dwg_point_3d *restrict def_pt,
-                          const double rotation_angle)
+                          const double rotation_angle,
+                          const int color)
 {
   API_ADD_ENTITY (DIMENSION_LINEAR);
   if (dwg->header.version <= R_2_22)
@@ -24359,6 +24360,7 @@ dwg_add_DIMENSION_LINEAR (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
   _obj->xline2_pt.y = xline2_pt->y;
   _obj->xline2_pt.z = xline2_pt->z;
   _obj->dim_rotation = rotation_angle;
+  _obj->parent->color.index = color;
   ADD_CHECK_ANGLE (_obj->dim_rotation);
   // TODO calc oblique_angle
   if (dwg->header.version <= R_12)

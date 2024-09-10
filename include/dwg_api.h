@@ -6560,7 +6560,8 @@ extern "C"
                             const dwg_point_3d *restrict xline1_pt,
                             const dwg_point_3d *restrict xline2_pt,
                             const dwg_point_3d *restrict def_pt,
-                            const double rotation_angle) __nonnull_all;
+                            const double rotation_angle,
+                            const int color) __nonnull_all;
   EXPORT Dwg_Entity_POINT *
   dwg_add_POINT (Dwg_Object_BLOCK_HEADER *restrict blkhdr,
                  const dwg_point_3d *restrict pt) __nonnull_all;

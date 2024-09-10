@@ -1296,13 +1296,13 @@ dwg_add_dat (Dwg_Data **dwgp, Bit_Chain *dat)
           // clang-format off
         SET_ENT (dimali, DIMENSION_ALIGNED)
       // clang-format on
-      else if (10
+      else if (11
                == SSCANF_S (
                    p,
                    "dimension_linear (%lf %lf %lf) (%lf %lf %lf) (%lf %lf "
-                   "%lf) %lf",
+                   "%lf) %lf %d",
                    &pt1.x, &pt1.y, &pt1.z, &pt2.x, &pt2.y, &pt2.z, &pt3.x,
-                   &pt3.y, &pt3.z, &rot))
+                   &pt3.y, &pt3.z, &rot, &i1))
       {
         LOG_TRACE (
             "add_DIMENSION_LINEAR %s (%f %f %f) (%f %f %f) (%f %f %f) %f\n",
@@ -1310,7 +1310,7 @@ dwg_add_dat (Dwg_Data **dwgp, Bit_Chain *dat)
             pt3.z, deg2rad (rot));
         CHK_MISSING_BLOCK_HEADER
         ent = (lastent_t){ .u.dimlin = dwg_add_DIMENSION_LINEAR (
-                               hdr, &pt1, &pt2, &pt3, deg2rad (rot)),
+                               hdr, &pt1, &pt2, &pt3, deg2rad (rot), i1),
                            .type = DWG_TYPE_DIMENSION_LINEAR };
       }
       else

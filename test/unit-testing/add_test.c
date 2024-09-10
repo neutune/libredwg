@@ -269,7 +269,7 @@ test_add (const Dwg_Object_Type type, const char *restrict file,
     case DWG_TYPE_DIMENSION_LINEAR:
       {
         const dwg_point_3d def_pt = { 2.5, 0.0, 0.0 };
-        dwg_add_DIMENSION_LINEAR (hdr, &pt1, &pt2, &def_pt, deg2rad (90.0));
+        dwg_add_DIMENSION_LINEAR (hdr, &pt1, &pt2, &def_pt, deg2rad (90.0), 0);
       }
       break;
     case DWG_TYPE_POINT:
